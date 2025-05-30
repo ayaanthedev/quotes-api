@@ -13,6 +13,12 @@
     "API"
   ],
   "author": "well300 aka Talha",
+  "contributors": [
+    {
+      "name": "AyaanTheDev",
+      "url": "https://github.com/ayaanthedev"
+    }
+  ],
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

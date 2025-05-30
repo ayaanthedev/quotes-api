@@ -74,3 +74,27 @@ const server = app.listen(port, () => {
 server.on('listening', () => {
   console.log('Thanks for using this API');
 });
+app.get('/quoteoftheday', async (req, res) => {
+  try {
+    const data = await fs.readFile(quotesFilePath, 'utf8');
+    const quotes = JSON.parse(data);
+
+    if (!quotes.length) {
+      return res.status(404).json({ error: 'No quotes available.' });
+    }
+
+    // Get today's date as a stable seed (e.g., "2025-05-30")
+    const today = new Date().toISOString().slice(0, 10);
+
+    // Simple deterministic hash function to get an index
+    const hash = [...today].reduce((sum, char) => sum + char.charCodeAt(0), 0);
+    const index = hash % quotes.length;
+
+    const quoteOfTheDay = quotes[index];
+
+    res.json(quoteOfTheDay);
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'Unable to fetch quote of the day.' });
+  }
+});
