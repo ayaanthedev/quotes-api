@@ -9,7 +9,7 @@ Here is a working example of a <a href="https://300talha.github.io/quote-generat
 
 1. Clone this repository:
  ```
-git clone https://github.com/well300/quotes-api.git
+git clone https://github.com/ayaanthedev/quotes-api.git
 ```
 2. Install the dependencies:
 ```
