@@ -25,7 +25,7 @@ npm start
 Fetches a random quote from the "quotes.json" file and returns it as a JSON response.
 For example, in your client-side JavaScript code, you can use the `fetch` function to make a GET request to the `/quote` endpoint on your server:
 ```
-fetch('https://quotes-api-self.vercel.app/quote')
+fetch('https://quotes-api-dev.vercel.app/quote')
   .then(response => response.json())
   .then(data => {
     // Handle the retrieved quote
@@ -69,6 +69,32 @@ If an error occurs while fetching or adding a quote, the API will return a JSON 
   "error": "Unable to fetch a quote."
 }
 ```
+## GET /quoteoftheday
+Fetches the **Quote of the Day**, selected deterministically based on the current date, so the same quote is served throughout the day. This allows users to get a daily inspirational quote that changes every day.
+
+**Example usage:**
+```
+fetch('https://quotes-api-dev.vercel.app/quoteoftheday')
+  .then(response => response.json())
+  .then(data => console.log('Quote of the Day:', data))
+  .catch(error => console.error(error));
+```
+
+**Example Response:**
+```
+{
+  "quote": "The only way to do great work is to love what you do.",
+  "author": "Steve Jobs"
+}
+```
+
+**If a Error Happens:**
+```
+Unable to fetch quote of the day.
+```
+
+
+
 ## License
 This project is licensed under the [MIT License](LICENSE). 📄⚖️
 
